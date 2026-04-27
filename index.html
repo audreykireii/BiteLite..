@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BiteLite - Hidup Sehat Lebih Ringan</title>
+    <style>
+        :root {
+            /* Palet warna soft (Cream, Navy pudar, Soft Gold) */
+            --bg-color: #F9F6F0; /* Soft Cream */
+            --text-color: #2B3A55; /* Soft Navy */
+            --accent-color: #D4AF37; /* Soft Gold */
+            --card-bg: #FFFFFF;
+            --btn-hover: #B8972E;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--card-bg);
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-bottom: 3px solid var(--accent-color);
+        }
+
+        header h1 {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        header h1 span {
+            color: var(--accent-color);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .hero {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #555;
+        }
+
+        .grid-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.03);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h2 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: var(--accent-color);
+            border-bottom: 2px solid var(--bg-color);
+            padding-bottom: 10px;
+        }
+
+        .card ul {
+            list-style-type: none;
+        }
+
+        .card ul li {
+            margin-bottom: 12px;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .card ul li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        /* Fitur Canggih: Kalkulator BMI */
+        .calculator {
+            background-color: var(--card-bg);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.03);
+            text-align: center;
+        }
+
+        .calculator input {
+            width: 100%;
+            max-width: 250px;
+            padding: 12px;
+            margin: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            background-color: var(--bg-color);
+        }
+
+        .calculator button {
+            background-color: var(--text-color);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        .calculator button:hover {
+            background-color: var(--accent-color);
+        }
+
+        #bmi-result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 15px;
+            border-radius: 8px;
+            display: none;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            font-size: 14px;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Bite<span>Lite</span></h1>
+    </header>
+
+    <div class="container">
+        <div class="hero">
+            <h2>Langkah Sederhana Menuju Hidup Sehat</h2>
+            <p>Aplikasi pendamping harian untuk menjaga pola makan dan kebugaran, dirancang khusus agar mudah diterapkan di tengah kesibukan.</p>
+        </div>
+
+        <div class="grid-cards">
+            <div class="card">
+                <h2>🍽️ Tips Diet Seimbang</h2>
+                <ul>
+                    <li><strong>Aturan Piring:</strong> Isi setengah piring dengan sayur, seperempat protein, dan seperempat karbohidrat kompleks.</li>
+                    <li><strong>Batasi Gula Tambahan:</strong> Ganti camilan manis dengan buah potong atau kacang-kacangan.</li>
+                    <li><strong>Minum Air Putih:</strong> Minimal 8 gelas sehari. Minum 1 gelas sebelum makan bisa bantu kontrol porsi.</li>
+                    <li><strong>Makan Perlahan:</strong> Beri waktu 20 menit bagi otak untuk menyadari rasa kenyang.</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>🏃‍♂️ Olahraga Ringan</h2>
+                <ul>
+                    <li><strong>Jalan Kaki Rutin:</strong> Cukup 30 menit sehari (bisa dibagi 2x15 menit) untuk kesehatan jantung.</li>
+                    <li><strong>Peregangan Pagi:</strong> Lakukan peregangan 5-10 menit setelah bangun untuk mengurangi kaku sendi.</li>
+                    <li><strong>Latihan Kekuatan Ringan:</strong> Gunakan botol air sebagai beban untuk menjaga massa otot (penting seiring bertambahnya usia).</li>
+                    <li><strong>Aktif di Sela Kerja:</strong> Berdiri dan berjalanlah setiap 1 jam sekali jika kamu sering duduk.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="calculator">
+            <h2>⚖️ Kalkulator Cerdas BMI</h2>
+            <p style="margin-bottom: 20px; color: #555;">Ketahui status berat badanmu saat ini dengan kalkulator Body Mass Index sederhana.</p>
+            
+            <input type="number" id="berat" placeholder="Berat Badan (kg)" required>
+            <input type="number" id="tinggi" placeholder="Tinggi Badan (cm)" required>
+            <br>
+            <button onclick="hitungBMI()">Cek Status Saya</button>
+
+            <div id="bmi-result"></div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 BiteLite. Your partner for a healthier, lighter life.</p>
+    </footer>
+
+    <script>
+        function hitungBMI() {
+            const berat = document.getElementById('berat').value;
+            const tinggiCM = document.getElementById('tinggi').value;
+            const resultDiv = document.getElementById('bmi-result');
+
+            if (berat === '' || tinggiCM === '') {
+                alert("Mohon masukkan berat dan tinggi badan dengan benar.");
+                return;
+            }
+
+            const tinggiM = tinggiCM / 100;
+            const bmi = (berat / (tinggiM * tinggiM)).toFixed(1);
+            
+            let kategori = '';
+            let warnaBg = '';
+            let warnaTeks = '#fff';
+
+            if (bmi < 18.5) {
+                kategori = 'Kekurangan berat badan. Yuk, perbaiki nutrisimu secara perlahan!';
+                warnaBg = '#E59866'; // Soft orange
+            } else if (bmi >= 18.5 && bmi <= 24.9) {
+                kategori = 'Normal (Ideal). Pertahankan gaya hidup sehatmu!';
+                warnaBg = '#7DCEA0'; // Soft green
+                warnaTeks = '#1E8449';
+            } else if (bmi >= 25 && bmi <= 29.9) {
+                kategori = 'Kelebihan berat badan ringan. Coba mulai rutin jalan kaki 30 menit sehari.';
+                warnaBg = '#F7DC6F'; // Soft yellow
+                warnaTeks = '#9A7D0A';
+            } else {
+                kategori = 'Obesitas. Konsultasikan pola diet yang aman dengan dokter, ya.';
+                warnaBg = '#F1948A'; // Soft red
+                warnaTeks = '#922B21';
+            }
+
+            resultDiv.style.display = 'block';
+            resultDiv.style.backgroundColor = warnaBg;
+            resultDiv.style.color = warnaTeks;
+            resultDiv.innerHTML = `Skor BMI kamu: <strong>${bmi}</strong><br>${kategori}`;
+        }
+    </script>
+
+</body>
+</html>
